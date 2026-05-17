@@ -2,9 +2,14 @@
 # Sistema di Gestione delle Spese Personali e del Budget
 
 import sqlite3
+import os
+
+# Calcolo del percorso del database rispetto alla posizione di main.py
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(SCRIPT_DIR, "..", "sql", "spese.db")
 
 # Apertura della connessione al database
-conn = sqlite3.connect("../sql/spese.db")
+conn = sqlite3.connect(DB_PATH)
 conn.execute("PRAGMA foreign_keys = ON")
 cur = conn.cursor()
 
